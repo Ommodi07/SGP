@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn and Earn</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="index.js"></script> -->
+</head>
+<body>
+    <nav class ="navbar">
+        <div class="container">
+            <div>
+                <img src="logo.png" id="logo" />
+            </div>
+            <div class="navbar-element">
+                <div class="elments"><A href="index.html">Home</A></div>
+                <div class="elments"><A href="Course.html">Course</A></div>
+                <div class="elments"><A>Find Job</A></div>
+                <div class="elments"><A href="FAQ.html">FAQ</A></div>
+
+                <div class="user-info" id="userInfo" style="display:none;">
+                    <img src="user-logo.png" id="userLogo" class="user-logo" />
+                    <div class="email-popup" id="emailPopup"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="homepage">
+        <section class="first-sec">
+            <div class="first-div">
+                <div class="text-first">
+                    <h1 style="margin-bottom: 0;">Upgrade your skill now
+                    </h1>
+                    <button id="sign-up"><a href="SignUp.html" id="sign-up">Get started!!!</a></button> <!--onclick to signup-->
+                </div>
+                <div class="image-first">
+                    <img src="home.jpg" id="home-image" >
+                </div>
+            </div>
+        </section>
+     
+    </div>
+    <div class="findWork">
+        <img src="WorkLaptop.png" alt="working-lady" class="image">
+         <div class="right-Work">
+               <div class="talent-first">
+                   <p class="para-talent">
+                   For Talent
+                   </p>
+                   <h2>
+                       <span role="text" class="span1-talent">Find great</br>work</span>
+                   </h2>
+                   <span class="span2-talent">Meet clients you're exited to work and take </br>your career or business to new heights.</span>
+               </div>
+               <hr>
+               <div class="overview">
+                   <div class="overview-0"><span>
+                   Find opportunities for every stage of your freelance career
+                   </span></div>
+                   <div class="overview-1"><span>
+                       Control when, where, and how you work
+                   </span></div>
+                   <div class="overview-2"><span>
+                       Explore different ways to earn
+                   </span></div>
+                   <div >
+                       <button class="nav-work">Find opportunities</button>
+                   </div>
+               </div>
+         </div>
+       </div>
+       <footer>
+        <div class="footer-content">
+            <div class="footer-col footer-col-1">
+                <div class="col-title">
+                    <img src="logo1.png" alt="">
+                </div>
+                <div class="col-content">
+                    <p>Course Crafter is website for active-learning and finding jobs for young aspiring minds.
+                    which is instrumental for self-actualisation providing opportunities for a life-long learning.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-col footer-col-2">
+                <div class="col-title">
+                    <h3>Contact</h3>
+                </div>
+                <div class="col-content">
+                    <div class="content-row">
+                        <span>Phone</span>
+                        <span>+91 9825-854632</span>
+                    </div>
+                    <div class="content-row">
+                        <span>Website</span>
+                        <span>CourseCrafter.com</span>
+                    </div>
+                    <div class="content-row">
+                        <span>E-mail</span>
+                        <span>info@CourseCrafter.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-col footer-col-3">
+                <div class="col-title">
+                    <h3>Quick links</h3>
+                </div>
+                <div class="col-content">
+                    <a href="index.html">Home</a>
+                    <a href="Course.html">Course</a>
+                    <a>Find Job</a>
+                    <a href="FAQ.html">FAQ</a>
+                </div>
+            </div>
+        </div>
+        <div class="copy-rights">
+            <p>All Rights Reserved</p>
+        </div>
+   </footer>
+    <script>
+        // Assuming user's email is stored in localStorage after login
+        const userEmail = localStorage.getItem('userEmail');
+        const userInfo = document.getElementById('userInfo');
+        const emailPopup = document.getElementById('emailPopup');
+
+        if (userEmail) {
+            userInfo.style.display = 'block';
+            emailPopup.textContent = userEmail;
+
+            // Show email on hover
+            document.getElementById('userLogo').addEventListener('mouseover', () => {
+                emailPopup.style.display = 'block';
+            });
+            document.getElementById('userLogo').addEventListener('mouseout', () => {
+                emailPopup.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
