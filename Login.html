@@ -29,30 +29,32 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            fetch('http://localhost:3000/login', {
+            fetch('http://localhost:3000/user/signin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ email, password })
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.token) {
-                        // Store email in localStorage
-                        localStorage.setItem('userEmail', email);
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    // Store JWT token and email in localStorage
+                    localStorage.setItem('userToken', data.token);
+                    localStorage.setItem('userEmail', email);
 
-                        // Redirect to home page
-                        window.location.href = 'index.html';
-                    } else {
-                        document.getElementById('loginError').innerText = 'Invalid email or password';
-                    }
-                })
-                .catch(error => {
+                    // Redirect to home page
+                    window.location.href = 'index.html';
+
+                } else {
+                    // Show error if login failed
                     document.getElementById('loginError').innerText = 'Invalid email or password';
-                });
+                }
+            })
+            .catch(error => {
+                document.getElementById('loginError').innerText = 'Error logging in. Please try again.';
+            });
         });
-
     </script>
 </body>
 </html>
