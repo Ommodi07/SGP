@@ -16,7 +16,7 @@ const userSchema = zod.object({
 
 userRouter.post("/signup", async function(req, res) {
     try {
-        const { email, password } = req.body;
+        const { email, password , confirm} = req.body;
         
         // Validate input data
         const result = userSchema.safeParse(req.body);
@@ -29,14 +29,21 @@ userRouter.post("/signup", async function(req, res) {
         if (existingUser) {
             return res.status(409).json({ message: "User already exists" });
         }
-
+        // console.log(confirm);
+        if(password===confirm)
+        {
         // Hash the password before saving
-        const hashedPassword = await bcrypt.hash(password, 5);
+            const hashedPassword = await bcrypt.hash(password, 5);
 
         // Save user to database
-        await userModel.create({ email, password: hashedPassword });
-        res.status(201).json({ message: "Signup succeeded" });
-
+            await userModel.create({ email, password: hashedPassword });
+            res.status(201).json({ message: "Signup succeeded" });
+        }
+        else
+        {
+            res.status(401).json({ message: "Password doesn't match" });    
+        }
+    
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Internal server error" });

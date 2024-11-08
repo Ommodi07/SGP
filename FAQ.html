@@ -10,7 +10,24 @@
     <nav class="navbar">
         <div class="container">
             <div>
-                <img src="/image/logo.png" id="logo" />
+                <a href="index.html"><img src="/image/logo.png" id="logo"></a> 
+            </div>
+            <div class="navbar-element">
+                <div class="elments"><a href="index.html">Home</a></div>
+                <div class="elments"><a href="Course.html">Course</a></div>
+                <div class="elments"><a href="FJ.html">Find Job</a></div>
+                <div class="elments"><a href="FAQ.html">FAQ</a></div>
+
+                <div class="user-info" id="userInfo" style="display:none;">
+                    <div class="dropdown">
+                        <img src="/image/user-logo.png" id="userLogo" class="user-logo" />
+                        <div class="dropdown-content">
+                            <a href="purchases.html">Purchases</a>
+                            <a href="#" id="logout">Logout</a>
+                        </div>
+                    </div>
+                    <div class="email-popup" id="emailPopup"></div>
+                </div>
             </div>
         </div>
     </nav>

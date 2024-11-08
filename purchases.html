@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Applied Jobs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .applied-jobs {
+            display: grid;
+            gap: 20px;
+        }
+
+        .job-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .job-card h3 {
+            color: #2557a7;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .company-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .rating {
+            margin-left: 10px;
+            color: #ffc107;
+        }
+
+        .job-details {
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .tags {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .no-jobs {
+            text-align: center;
+            padding: 40px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .no-jobs h2 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .no-jobs a {
+            color: #2557a7;
+            text-decoration: none;
+        }
+
+        .no-jobs a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>My Applied Jobs</h1>
+            <p>Track all your job applications in one place</p>
+        </div>
+        <div id="appliedJobsContainer" class="applied-jobs">
+            <!-- Jobs will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get applied jobs from localStorage
+            const appliedJobs = JSON.parse(localStorage.getItem('appliedJobs')) || [];
+            const container = document.getElementById('appliedJobsContainer');
+
+            if (appliedJobs.length === 0) {
+                container.innerHTML = `
+                    <div class="no-jobs">
+                        <h2>No jobs applied yet</h2>
+                        <p>Start exploring opportunities and apply for jobs!</p>
+                        <p><a href="FJ.html">Browse Jobs</a></p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Display each applied job
+            appliedJobs.forEach(job => {
+                const jobCard = document.createElement('div');
+                jobCard.classList.add('job-card');
+                
+                jobCard.innerHTML = `
+                    <h3>${job.title}</h3>
+                    <div class="company-info">
+                        ${job.company} ${job.rating ? `<span class="rating">${job.rating}</span>` : ''}
+                    </div>
+                    <div class="job-details">
+                        <strong>Experience:</strong> ${job.experience} | 
+                        <strong>Salary:</strong> ${job.salary} | 
+                        <strong>Location:</strong> ${job.location}
+                    </div>
+                    <p class="description">${job.description}</p>
+                    <p class="tags">${job.tags}</p>
+                    <div class="status">Application Submitted</div>
+                `;
+
+                container.appendChild(jobCard);
+            });
+        });
+    </script>
+</body>
+</html>
