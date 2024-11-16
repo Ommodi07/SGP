@@ -7,7 +7,7 @@ const ObjectId = mongoose.Types.ObjectId;
 const userSchema = new Schema({
     email: { type: String, unique: true },
     password: String,
-    confirm: String
+    confirmPassword: String
     
 });
 
@@ -23,12 +23,12 @@ const courseSchema = new Schema({
     price: Number,
     imageUrl: String,
     creatorId: ObjectId
-});
+  });
 
 const purchaseSchema = new Schema({
     userId: ObjectId,
-    courseId: ObjectId
-});
+    courseId: { type: ObjectId, ref: 'course' }
+  });
 
 const userModel = mongoose.model("user", userSchema);
 const adminModel = mongoose.model("admin", adminSchema);

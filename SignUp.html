@@ -17,7 +17,7 @@
             <input type="password" id="password" name="password" required>
 
             <label for="password">Confirm Password</label>
-            <input type="password" id="confirm" name="password" required>
+            <input type="password" id="confirm-password" name="password" required>
 
             <p class="login-text">Already a member? <a href="login.html">Log In</a></p>
             <button type="submit" class="signup-btn">Sign up</button>
@@ -31,14 +31,14 @@
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const confirm = document.getElementById('confirm').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
             
             fetch('http://localhost:3000/user/signup', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ email, password, confirm })
+    body: JSON.stringify({ email, password,confirmPassword })
 })
 
 .then(response => response.json())

@@ -6,17 +6,17 @@ function userMiddleware(req, res, next) {
     const authHeader = req.headers.authorization;
     
     // Check if the token is provided
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    if (!authHeader) {
         return res.status(401).json({
             message: "Authorization token missing or malformed"
         });
     }
 
-    const token = authHeader.split(' ')[1]; // Extract the token after 'Bearer'
-
+    const token = authHeader;
     try {
         // Verify token and extract payload
         const decoded = jwt.verify(token, JWT_USER_PASSWORD);
+        console.log(decoded);
         
         // Attach user ID to request object for use in subsequent routes
         req.userId = decoded.id;

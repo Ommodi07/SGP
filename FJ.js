@@ -183,22 +183,13 @@ document.addEventListener("DOMContentLoaded", function() {
         tagsPara.classList.add('tags');
         tagsPara.textContent = job.tags;
 
-        const applyButton = document.createElement('button');
-        applyButton.classList.add('apply-button');
-        applyButton.textContent = "Apply Now";
-        applyButton.addEventListener('click', function() {
-            alert(`You have applied for the position: ${job.title} at ${job.company}`);
-        });
-
         // Append all elements to the job card
-        jobCard.append(jobTitle, companyRatingDiv, jobDetails, jobDesc, tagsPara, applyButton);
+        jobCard.append(jobTitle, companyRatingDiv, jobDetails, jobDesc, tagsPara);
 
         // Append the job card to the job listings container
         jobListingsDiv.appendChild(jobCard);
     });
 });
-
-// apply button
 
 
 // Function to apply filters
