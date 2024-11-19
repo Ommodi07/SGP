@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course</title>
+    <link rel="stylesheet" href="course.css" />
+    <script src="userlogo.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <script>
+      fetch("http://localhost:3000/course/preview", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const courses = data.courses;
+          const container = document.getElementById("courses-container");
+
+          courses.forEach((course) => {
+            const courseBox = document.createElement("div");
+            courseBox.className = "box";
+            courseBox.innerHTML = `
+                
+                <div class="course-img">
+                    <img src="${course.imageUrl}" alt="">
+                </div>
+                <h3>${course.title}</h3><hr>
+                <div class="course-header">
+                    <span class="course-rating">${course.rating} <i class="fa-solid fa-star"></i></span>
+                    <span class="course-students"><i class="fa-solid fa-users"></i> ${course.enrolledStudents} Students</span>
+                </div>
+                <div class="course-desc">
+                    <p>${course.description}</p>
+                </div>
+                <a href="Coursedetails.html?id=${course._id}" class="btn">Read more</a>
+            `;
+            container.appendChild(courseBox);
+        });
+        
+        
+        })
+        .catch((err) => {
+          console.error("Error fetching courses:", err);
+        });
+    </script>
+    <nav class="navbar">
+      <div class="container">
+        <div>
+          <img src="/image/logo.png" id="logo" />
+        </div>
+        <div class="navbar-element">
+          <div class="elments"><a href="index.html">Home</a></div>
+          <div class="elments"><a href="Course.html">Course</a></div>
+          <div class="elments"><a href="FJ.html">Find Job</a></div>
+          <div class="elments"><a href="FAQ.html">FAQ</a></div>
+          <div class="user-info" id="userInfo" style="display:none;">
+            <div class="dropdown">
+                <img src="/image/user-logo.png" id="userLogo" class="user-logo" />
+                <div class="dropdown-content">
+                    <a href="purchase.html">Purchases</a>
+                    <a href="#" id="logout">Logout</a>
+                </div>
+            </div>
+            <div class="email-popup" id="emailPopup"></div>
+        </div>
+        
+      </div>
+      </div>
+      </div>
+    </nav>
+    <div class="fcontainer">
+      <h2 class="heading">Explore Free Courses</h2>
+      <div class="box-container" id="courses-container">
+      </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col footer-col-1">
+          <div class="col-title">
+            <img src="image/logo1.png" alt="" />
+          </div>
+          <div class="col-content">
+            <p>
+              Course Crafter is website for active-learning and finding jobs for
+              young aspiring minds. which is instrumental for self-actualisation
+              providing opportunities for a life-long learning.
+            </p>
+          </div>
+        </div>
+        <div class="footer-col footer-col-2">
+          <div class="col-title">
+            <h3>Contact</h3>
+          </div>
+          <div class="col-content">
+            <div class="content-row">
+              <span>Phone</span>
+              <span>+91 9825-854632</span>
+            </div>
+            <div class="content-row">
+              <span>Website</span>
+              <span>CourseCrafter.com</span>
+            </div>
+            <div class="content-row">
+              <span>E-mail</span>
+              <span>info@CourseCrafter.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col footer-col-3">
+          <div class="col-title">
+            <h3>Quick links</h3>
+          </div>
+          <div class="col-content">
+            <a href="index.html">Home</a>
+            <a href="Course.html">Course</a>
+            <a>Find Job</a>
+            <a href="FAQ.html">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="copy-rights">
+        <p>All Rights Reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>

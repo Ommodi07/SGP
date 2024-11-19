@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="enroll.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="userlogo.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div>
+                <img src="image/logo.png" id="logo">
+
+            </div>
+            <div class="navbar-element">
+                <div class="elments"><a href="index.html">Home</a></div>
+                <div class="elments"><a href="Course.html">Course</a></div>
+                <div class="elments"><a>Find Job</a></div>
+                <div class="elments"><a href="FAQ.html">FAQ</a></div>
+                <div class="user-info" id="userInfo" style="display:flex;">
+                    <div class="dropdown">
+                        <img src="/image/user-logo.png" id="userLogo" class="user-logo" />
+                        <div class="dropdown-content">
+                            <a href="purchase.html">Purchases</a>
+                            <a href="#" id="logout">Logout</a>
+                        </div>
+                    </div>
+                    <div class="email-popup" id="emailPopup"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Info -->
+    <div class="info">
+        <div class="data">  
+            <h1 id="course-title"></h1>
+            <p id="course-description"><a id="course-link"></a></p>
+            <span>Rating: <span id="course-rating"></span> <i class="fa-solid fa-star"></i></span>
+            <p><i class="fa-solid fa-users"></i> <span id="course-students"></span> Students are already enrolled.</p>
+            <button class="enroll" id="enroll-btn" style="cursor: pointer;">Enroll for Free</button>
+            <hr>
+        </div>   
+        <div class="img" id="img">
+           
+        </div>  
+    </div> 
+
+    <!-- Course Details -->
+    <div class="about"> 
+       <div>
+        <span>What you'll learn :</span>
+        <ul id="learning-points"></ul>
+       </div>
+       
+         
+      
+    </div>
+    <div class="skill"> 
+         <div>
+                <span> Skills you'll gain :</span>
+        <ul id="skills-gained"></ul>
+    </div>
+</div>
+  
+    <hr>
+    <!-- Reviews -->
+    <div class="review">
+        <h3>Learner reviews</h3>
+        <div id="reviews-container"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col footer-col-1">
+                <div class="col-title">
+                    <img src="image/logo.png" alt="">
+                </div>
+                <div class="col-content">
+                    <p>Course Crafter is website for active-learning and finding jobs for young aspiring minds.
+                    which is instrumental for self-actualisation providing opportunities for a life-long learning.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-col footer-col-2">
+                <div class="col-title">
+                    <h3>Contact</h3>
+                </div>
+                <div class="col-content">
+                    <div class="content-row">
+                        <span>Phone</span>
+                        <span>+91 9825-854632</span>
+                    </div>
+                    <div class="content-row">
+                        <span>Website</span>
+                        <span>CourseCrafter.com</span>
+                    </div>
+                    <div class="content-row">
+                        <span>E-mail</span>
+                        <span>info@CourseCrafter.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-col footer-col-3">
+                <div class="col-title">
+                    <h3>Quick links</h3>
+                </div>
+                <div class="col-content">
+                    <a href="index.html">Home</a>
+                    <a href="Course.html">Course</a>
+                    <a>Find Job</a>
+                    <a href="FAQ.html">FAQ</a>
+                </div>
+            </div>
+        </div>
+        <div class="copy-rights">
+            <p>All Rights Reserved</p>
+        </div>
+   </footer>
+
+   <script src="script.js"></script>
+   <script>
+    document.getElementById("enroll-btn").onclick = function () {
+  // Get the course details
+  const urlParams = new URLSearchParams(window.location.search);
+  const courseId = urlParams.get("id");
+  const token = localStorage.getItem("userToken");
+
+  console.log(token);
+  if (!token) {
+    alert("Please login to enroll in this course");
+    window.location.href = "login.html";
+    return;
+  }
+
+  // Send the course details to the server to create a new purchase
+  fetch("http://localhost:3000/user/purchases", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({courseId}),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        // Print success message
+        document.getElementById("enroll-btn").innerHTML = "Enrolled";
+        console.log("Course added successfully");
+        alert("Course added successfully!");
+       
+        // Redirect the user to the purchase page
+        window.location.href = "purchase.html";
+      } else {
+        // Display an error message
+        alert(data.message);
+      }
+    })
+    .catch((error) => {
+      // Handle any errors
+      console.error("Error:", error);
+    });
+};
+
+  </script>
+</body>
+</html>

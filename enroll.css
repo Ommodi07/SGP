@@ -1,0 +1,243 @@
+A{
+    text-decoration: none;
+    color: #424242;
+}
+A:hover{
+    color: green;
+}
+.navbar{
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    background-color: #fff;
+    box-shadow: 2px 1px 4dvi #eee;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+
+    margin-left: 10px;
+    margin-right: 50px;
+   
+
+}
+#logo{
+    width: 200px;
+    cursor: pointer;
+}
+.navbar-element{
+    display: flex;
+  margin-top: 12px;
+  
+    
+  justify-content: center;
+ 
+}
+.elments{
+    padding: 15px;
+    font-size: large;
+    font-weight: 600;
+    font-family: Inter,serif;
+    cursor: pointer;
+
+
+}
+.user-logo {
+    padding-top: 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.email-popup {
+    display: none;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    border-radius: 5px;
+}
+   /* Dropdown styles */
+   .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.info{
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.info img{
+    margin-top: 50px;
+    margin-left: 50px;
+}
+.info img{
+    height: 220px;
+}
+.info .data{
+    font-size: 18px;
+    font-weight: 500;
+    width: 850px;
+}
+.info .data .link{
+    text-decoration: underline;
+    text-decoration: bold;
+}
+.info .data ul{
+    font-size: 15px;
+    font-weight: 500;
+}
+.info .data span i{
+	color: gold;
+	font-size: 14px;
+}
+.info .data .enroll{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    display:inline-block;
+    background:#000d6f;
+    color:#fff;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 8px 25px;
+}
+.info .data .enroll:hover{
+    letter-spacing: 1px;
+}
+.about{
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 17px;
+    font-weight: 400;
+}
+.skill
+{
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 17px;
+    font-weight: 400;
+}
+.review{
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;  
+    flex-direction: column;
+}
+.review .box {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    flex-direction: row;
+    width: 800px;
+    border: rgb(0, 0, 0) solid; 
+    border-radius: 7.5px;   
+}
+.review .box .pof{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 30px;
+}
+.review .box .rew{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+footer{
+	padding: 70px 8% 30px;
+	background-color: rgb(36, 36, 36);
+}
+
+footer .footer-content{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 50px;
+}
+.footer-content .footer-col{
+	flex-basis: calc(calc(100% / 4) - 20px);
+}
+.footer-content .footer-col-1 .footer-title{
+	min-height: 60px;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+.footer-col .col-title h3{
+	font-size: 24px;
+	color: white;
+}
+.footer-col .col-content{
+	display: flex;
+	flex-direction: column;
+}
+.footer-col-1 .col-title img{
+	width: 150px;
+}
+
+.footer-col-1 .col-content p{
+	color: white;
+	font-size: 15px;
+	line-height: 1.3;
+	margin-bottom: 15px;
+}
+.footer-col-2 .col-content .content-row{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.footer-col-2 .col-content .content-row span{
+   color: white;
+   font-size: 16px;
+}
+.footer-col-3 .col-content a{
+    text-decoration: none;
+    color: white;
+    margin-bottom: 20px;
+    align-self: flex-start;
+	transition: all 0.3s;
+}
+.footer-col-3 .col-content a:hover{
+	letter-spacing: 1.5px;
+}
+.copy-rights{
+	padding: 10px 0px 0px;
+	border-top: 1px solid white;
+	text-align: center;
+}
+.copy-rights p{
+	color: white;
+}

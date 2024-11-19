@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn and Earn</title>
+    <link rel="stylesheet" href="homepage.css">
+    <style>
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div>
+                <a href="index.html"><img src="/image/logo.png" id="logo"></a> 
+            </div>
+            <div class="navbar-element">
+                <div class="elments"><a href="index.html">Home</a></div>
+                <div class="elments"><a href="Course.html">Course</a></div>
+                <div class="elments"><a href="FJ.html">Find Job</a></div>
+                <div class="elments"><a href="FAQ.html">FAQ</a></div>
+
+                <div class="user-info" id="userInfo" style="display:none;">
+                    <div class="dropdown">
+                        <img src="/image/user-logo.png" id="userLogo" class="user-logo" />
+                        <div class="dropdown-content">
+                            <a href="purchase.html">Purchases</a>
+                            <a href="#" id="logout">Logout</a>
+                        </div>
+                    </div>
+                    <div class="email-popup" id="emailPopup"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="homepage">
+        <section class="first-sec">
+            <div class="first-div">
+                <div class="text-first">
+                    <h1 style="margin-bottom: 0;">Upgrade your skill now</h1>
+                    <button id="action-btn"><a href="SignUp.html" id="action-btn-link">Get started!!!</a></button>
+                </div>
+                <div class="image-first">
+                    <img src="/image/home.jpg" id="home-image" />
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="findWork">
+        <img src="/image/WorkLaptop.png" alt="working-lady" class="image">
+         <div class="right-Work">
+               <div class="talent-first">
+                   <p class="para-talent">
+                   For Talent
+                   </p>
+                   <h2>
+                       <span role="text" class="span1-talent">Find great</br>work</span>
+                   </h2>
+                   <span class="span2-talent">Meet clients you're exited to work and take </br>your career or business to new heights.</span>
+               </div>
+               <hr>
+               <div class="overview">
+                   <div class="overview-0"><span>
+                   Find opportunities for every stage of your freelance career
+                   </span></div>
+                   <div class="overview-1"><span>
+                       Control when, where, and how you work
+                   </span></div>
+                   <div class="overview-2"><span>
+                       Explore different ways to earn
+                   </span></div>
+                   <div >
+                       <button class="nav-work"><a class="nav-work" href="FJ.html">Find opportunities</a></button>
+                   </div>
+               </div>
+         </div>
+       </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col footer-col-1">
+                <div class="col-title">
+                    <img src="/image/logo1.png" alt="">
+                </div>
+                <div class="col-content">
+                    <p>Course Crafter is website for active-learning and finding jobs for young aspiring minds.
+                    which is instrumental for self-actualisation providing opportunities for a life-long learning.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-col footer-col-2">
+                <div class="col-title">
+                    <h3>Contact</h3>
+                </div>
+                <div class="col-content">
+                    <div class="content-row">
+                        <span>Phone</span>
+                        <span>+91 9825-854632</span>
+                    </div>
+                    <div class="content-row">
+                        <span>Website</span>
+                        <span>CourseCrafter.com</span>
+                    </div>
+                    <div class="content-row">
+                        <span>E-mail</span>
+                        <span>info@CourseCrafter.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-col footer-col-3">
+                <div class="col-title">
+                    <h3>Quick links</h3>
+                </div>
+                <div class="col-content">
+                    <a href="index.html">Home</a>
+                    <a href="Course.html">Course</a>
+                    <a>Find Job</a>
+                    <a href="FAQ.html">FAQ</a>
+                </div>
+            </div>
+        </div>
+        <div class="copy-rights">
+            <p>All Rights Reserved</p>
+        </div>
+   </footer>
+    <script>
+        // Check if the user is logged in
+        const userEmail = localStorage.getItem('userEmail');
+        const userInfo = document.getElementById('userInfo');
+        const emailPopup = document.getElementById('emailPopup');
+        const actionBtn = document.getElementById('action-btn');
+        const actionBtnLink = document.getElementById('action-btn-link');
+        const logoutBtn = document.getElementById('logout');
+
+        if (userEmail) {
+            userInfo.style.display = 'block';
+            emailPopup.textContent = userEmail;
+
+            // Change button text and link
+            actionBtnLink.textContent = 'Start Course';
+            actionBtnLink.href = 'Course.html';
+
+            // // Show email on hover
+            // document.getElementById('userLogo').addEventListener('mouseover', () => {
+            //     emailPopup.style.display = 'block';
+            // });
+            // document.getElementById('userLogo').addEventListener('mouseout', () => {
+            //     emailPopup.style.display = 'none';
+            // });
+
+            // Logout logic
+            logoutBtn.addEventListener('click', () => {
+                // Call API to delete the user session or user data
+                fetch('http://localhost:3000/user/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Clear local storage and redirect to login page
+                        localStorage.removeItem('userEmail');
+                        localStorage.removeItem('token');
+                        window.location.href = 'login.html';
+                    } else {
+                        alert('Logout failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error during logout:', error);
+                    alert('An error occurred during logout');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

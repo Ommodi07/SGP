@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Courses - Course Crafter</title>
+    <link rel="stylesheet" href="purchase.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div>
+          <img src="image/logo.png" id="logo" alt="Course Crafter Logo" />
+        </div>
+        <div class="navbar-element">
+          <div class="elements"><a href="index.html">Home</a></div>
+          <div class="elements"><a href="Course.html">Course</a></div>
+          <div class="elements"><a href="FJ.html">Find Job</a></div>
+          <div class="elements"><a href="FAQ.html">FAQ</a></div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="fcontainer">
+      <h1 class="heading">My Enrolled Courses</h2>
+      <div class="box-container" id="courses-container">
+      </div>
+    </div>
+
+    <script>
+        const token = localStorage.getItem("userToken");
+      
+        if (!token) {
+          alert("Please login to view your enrolled courses.");
+          window.location.href = "login.html";
+        } else {
+          fetch("http://localhost:3000/user/purchases", {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Response Data:", data); // Log the full response
+      
+              if (data.success) {
+                const purchasedCourses = data.purchases;
+                const container = document.getElementById("courses-container");
+                purchasedCourses.forEach((purchase, index) => {
+                  console.log(`Purchase #${index}:`, purchase);
+      
+                  const course = purchase.courseDetails;
+      
+                  // Log each field
+                  console.log("Course Details:", course);
+                  console.log("Image URL:", course?.imageUrl); // Safely access imageUrl
+                  console.log("Title:", course?.title);
+                  console.log("Description:", course?.description);
+      
+                  // Create a DOM element
+                  const courseBox = document.createElement("div");
+            courseBox.className = "box";
+            
+            // Set the inner HTML of the new div
+            courseBox.innerHTML = `
+            <div class="course-img">
+                 <img src="${course.imageUrl}" alt="">
+            </div>
+            <h3>${course.title}</h3><hr>
+            <div class="course-desc">
+                <p>${course.description}</p>
+                <span>${course.rating} <i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-users"></i> ${course.enrolledStudents} Students</span>
+            </div>
+            <a href="Coursedetails.html?id=${course._id}" class="btn">Read more</a>
+        `;
+
+            // Append the new element to the container
+            container.appendChild(courseBox);
+                });
+              } else {
+                alert(data.message || "Failed to load courses.");
+              }
+            })
+            .catch((error) => {
+              console.error("Error fetching purchases:", error);
+            });
+        }
+      </script>
+        </body>
+</html>

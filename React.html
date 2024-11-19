@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+    <link rel="stylesheet" href="enroll.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div>
+          <a href="index.html"><img src="/image/logo.png" id="logo" /></a>
+        </div>
+        <div class="navbar-element">
+          <div class="elments"><a href="index.html">Home</a></div>
+          <div class="elments"><a href="Course.html">Course</a></div>
+          <div class="elments"><a href="FJ.html">Find Job</a></div>
+          <div class="elments"><a href="FAQ.html">FAQ</a></div>
+
+          <div class="user-info" id="userInfo" style="display: none">
+            <div class="dropdown">
+              <img src="/image/user-logo.png" id="userLogo" class="user-logo" />
+              <div class="dropdown-content">
+                <a href="purchases.html">Purchases</a>
+                <a href="#" id="logout">Logout</a>
+              </div>
+            </div>
+            <div class="email-popup" id="emailPopup"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="info">
+      <div class="data">
+        <h1>React.js Basics</h1>
+        <p>
+          Launch your career as a front-end developer. Build job-ready skills
+          for an in-demand career and earn a credential. No degree or prior
+          experience required to get started.
+          <a
+            href="https://en.wikipedia.org/wiki/React_(JavaScript_library)"
+            class="link"
+            >Know more</a
+          >
+        </p>
+        <span>Rating : 4.9 <i class="fa-solid fa-star"></i></span>
+        <p>
+          <i class="fa-solid fa-users"></i> 1954+ Students are already enroll.
+        </p>
+        <button class="enroll" id="enrollButton">Enroll for Free</button>
+        <hr />
+      </div>
+      <div class="img">
+        <img src="image/React.png" alt="React" />
+      </div>
+    </div>
+    <div class="about">
+      <p>What you'll learn :</p>
+      <ul>
+        <li>
+          Use reusable components to render views where data changes over time.
+        </li>
+        <li>
+          Organize React projects to create more scalable and maintainable
+          websites and apps.
+        </li>
+        <li>
+          Use props to pass data between components. Create dynamic and
+          interactive web pages and apps.
+        </li>
+        <li>
+          Use forms to allow users to interact with the app. Build an
+          application in React.
+        </li>
+      </ul>
+      <p>Skills you'll gain :</p>
+      <ul>
+        <li>React (Web Framework)</li>
+        <li>Web Application</li>
+        <li>Application development</li>
+        <li>Front-End Web Development</li>
+      </ul>
+      <hr />
+    </div>
+    <div class="review">
+      <h3>Learner reviews</h3>
+      <div class="box">
+        <div class="pof">
+          <i class="fa fa-user-circle-o"></i>
+        </div>
+        <div class="rew">
+          <p>Deven Parmar</p>
+          <p>
+            This was well-organized, straightforward, and easy to follow. The
+            instructor was very knowledgeable with excellent presentation
+            skills. Excellent rating
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="pof">
+          <i class="fa fa-user-circle-o"></i>
+        </div>
+        <div class="rew">
+          <p>Parth Tiwari</p>
+          <p>
+            The content is great, but the integrated development environment was
+            not easy to use. I could never run the code on the Vision Studio
+            Code console.
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="pof">
+          <i class="fa fa-user-circle-o"></i>
+        </div>
+        <div class="rew">
+          <p>Dhruv Desai</p>
+          <p>
+            The course is a great introduction to React framework, which I knew
+            nothing about before. I am interested to learn more. The teacher
+            spoke clearly and I rarely rewinded the videos.
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col footer-col-1">
+          <div class="col-title">
+            <img src="image/logo1.png" alt="" />
+          </div>
+          <div class="col-content">
+            <p>
+              Course Crafter is website for active-learning and finding jobs for
+              young aspiring minds. which is instrumental for self-actualisation
+              providing opportunities for a life-long learning.
+            </p>
+          </div>
+        </div>
+        <div class="footer-col footer-col-2">
+          <div class="col-title">
+            <h3>Contact</h3>
+          </div>
+          <div class="col-content">
+            <div class="content-row">
+              <span>Phone</span>
+              <span>+91 9825-854632</span>
+            </div>
+            <div class="content-row">
+              <span>Website</span>
+              <span>CourseCrafter.com</span>
+            </div>
+            <div class="content-row">
+              <span>E-mail</span>
+              <span>info@CourseCrafter.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col footer-col-3">
+          <div class="col-title">
+            <h3>Quick links</h3>
+          </div>
+          <div class="col-content">
+            <a href="index.html">Home</a>
+            <a href="Course.html">Course</a>
+            <a>Find Job</a>
+            <a href="FAQ.html">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="copy-rights">
+        <p>All Rights Reserved</p>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("enrollButton").addEventListener("click", () => {
+        // Get the course details
+        const courseDetails = {
+          title: "React.js Basics",
+          description:
+            "Launch your career as a front-end developer. Build job-ready skills for an in-demand career and earn a credential. No degree or prior experience required to get started.",
+          price: 0,
+          imageUrl: "image/React.png",
+          creatorId: "1234567890",
+        };
+        const token = localStorage.getItem("userToken");
+
+        console.log(token);
+        if (!token) {
+          alert("Please login to enroll in this course");
+          window.location.href = "login.html";
+          return;
+        }
+        // Send the course details to the server to create a new purchase
+        fetch("http://localhost:3000/user/purchases", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: ` ${token}`,
+          },
+          body: JSON.stringify(courseDetails),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              // Redirect the user to the purchase page or show a success message
+              window.location.href = "purchase.html";
+            } else {
+              // Display an error message
+              alert(data.message);
+            }
+          })
+          .catch((error) => {
+            // Handle any errors
+            console.error("Error:", error);
+          });
+      });
+    </script>
+  </body>
+</html>
