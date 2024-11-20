@@ -172,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const applyButton = document.createElement('a');
         applyButton.textContent = "Apply Now";
         applyButton.href = job.link;
+        applyButton.setAttribute("id","applyhover")
         applyButton.target = "_blank"; // Open link in a new tab
         applyButton.classList.add('apply-button');
 

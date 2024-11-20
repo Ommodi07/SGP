@@ -217,7 +217,7 @@ font-weight: 500;
     font-size: 16px;
     border-radius: 12px;
     font-weight: 600;
-   border: none;
+    border: none;
 }
 .nav-work:hover{
     color: #0e0e0e;
@@ -254,7 +254,7 @@ footer .footer-content{
 	flex-direction: column;
 }
 .footer-col-1 .col-title img{
-	width: 150px;
+	width: 220px;
 }
 
 .footer-col-1 .col-content p{

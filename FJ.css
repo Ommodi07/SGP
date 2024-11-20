@@ -217,7 +217,7 @@ footer .footer-content{
 	flex-direction: column;
 }
 .footer-col-1 .col-title img{
-	width: 150px;
+	width: 220px;
 }
 
 .footer-col-1 .col-content p{
@@ -269,5 +269,8 @@ footer .footer-content{
 }
 
 .apply-button:hover {
-    background-color: #0056b3;
+    background-color: #4497f0;
+}
+#applyhover:hover{
+    color:#000000;
 }
