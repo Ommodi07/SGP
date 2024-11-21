@@ -184,14 +184,14 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        'Authorization': `Bearer ${localStorage.getItem('userToken')}`
                     }
                 })
                 .then(response => {
                     if (response.ok) {
                         // Clear local storage and redirect to login page
                         localStorage.removeItem('userEmail');
-                        localStorage.removeItem('token');
+                        localStorage.removeItem('userToken');
                         window.location.href = 'login.html';
                     } else {
                         alert('Logout failed');

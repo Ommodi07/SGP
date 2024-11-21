@@ -88,7 +88,8 @@ userRouter.post("/signin", async function(req, res) {
 });
 
 userRouter.post("/logout", async (req, res) => {
-    res.clearCookie('token');
+    // res.clearCookie('token');
+    // localStorage.removeItem('userToken'); 
     res.status(200).json({ message: "Logout successful" });
 });
 

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="enroll.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="userlogo.js"></script>
+    
 </head>
 <body>
     <nav class="navbar">
@@ -19,18 +19,8 @@
             <div class="navbar-element">
                 <div class="elments"><a href="index.html">Home</a></div>
                 <div class="elments"><a href="Course.html">Course</a></div>
-                <div class="elments"><a>Find Job</a></div>
+                <div class="elments"><a href="FJ.html">Find Job</a></div>
                 <div class="elments"><a href="FAQ.html">FAQ</a></div>
-                <div class="user-info" id="userInfo" style="display:flex;">
-                    <div class="dropdown">
-                        <img src="/image/user-logo.png" id="userLogo" class="user-logo" />
-                        <div class="dropdown-content">
-                            <a href="purchase.html">Purchases</a>
-                            <a href="#" id="logout">Logout</a>
-                        </div>
-                    </div>
-                    <div class="email-popup" id="emailPopup"></div>
-                </div>
             </div>
         </div>
     </nav>
@@ -151,7 +141,7 @@
     .then((data) => {
       if (data.success) {
         // Print success message
-        document.getElementById("enroll-btn").innerHTML = "Enrolled";
+       
         console.log("Course added successfully");
         alert("Course added successfully!");
        
